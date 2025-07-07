@@ -25,6 +25,10 @@
                 </div>
             <?php endforeach; ?>
     </div>
+    
+        <a class="btn btn-primary mt-3" href="add.php">Add Note</a>
+    
+        
 <?php else: ?>
     <p>Do not add yet any note</p>
 <?php endif; ?>
