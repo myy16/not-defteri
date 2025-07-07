@@ -30,4 +30,4 @@ if (file_exists('notes.json')) {
 }
 
 
-include 'home.php';
+include 'notes.php';
