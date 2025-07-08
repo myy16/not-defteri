@@ -10,10 +10,19 @@ if (file_exists($jsonFile)) {
 
 $note = $notes[$id];
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
-}
+    }
+    if($title || $content ) {
+        $notes[$id]['title'] = $title;
+        $notes[$id]['content'] = $content;
+
+        file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        header("Location: index.php");
+        exit;
+    }
 ?>
 
 
@@ -32,10 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <h1>Edit Notes</h1>
         <form method="POST">
             <label for="title" class="form-label">Title:</label>
-            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
 
             <label for="content" class="form-label">Note:</label>
-            <textarea name="content" placeholder="Content"></textarea>
+            <textarea name="content" placeholder="Content"><?php echo htmlspecialchars($note['content']); ?></textarea>
 
             <button type="submit" class="btn btn-primary">Submit</button>
 
