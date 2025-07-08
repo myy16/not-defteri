@@ -39,14 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>PHP Not Defteri</title>
+    <title>Add Note</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/css/bootstrap.min.css" integrity="sha512-fw7f+TcMjTb7bpbLJZlP8g2Y4XcCyFZW8uy8HsRZsH/SwbMw0plKHFHr99DN3l04VsYNwvzicUX/6qurvIxbxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Not Defteri</h1>
+    <h1>Add Note</h1>
     
     <?php if (!empty($error)): ?>
             <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <form method="POST">
         <div class="mb-3">
-            <label for="title" class="form-label">Titile:</label>
+            <label for="title" class="form-label">Title:</label>
             <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
         </div>
         <div class="mb-3">
