@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-    <div class="container">
+    
         <h1>Edit Notes</h1>
 
         <?php if (!empty($error)): ?>
@@ -49,18 +49,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <?php endif; ?>
 
         <form method="POST">
-            <label for="title" class="form-label">Title:</label>
-            <input type="text" name="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
-
-            <label for="content" class="form-label">Note:</label>
-            <textarea name="content" placeholder="Content"><?php echo htmlspecialchars($note['content']); ?></textarea>
-
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input name='title' type="text" class="form-control" id="title"<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Note:</label>
+                <textarea name="content" class="form-control" id="content" rows="3" placeholder="Content"><?php echo htmlspecialchars($note['content']); ?></textarea>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
 
 
         </form>
         <a class="btn btn-primary mt-3" href="index.php">Go Back</a>
-    </div>
+  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
