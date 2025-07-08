@@ -22,6 +22,7 @@
                          <?= $note['title'] ?>
                         (<?= $note['date'] ?>)   
                         </div>
+                        <a class="btn btn-secondary " href="edit.php?id=<?= $id ?>">Edit Note</a>
                         <a class="btn btn-secondary " href="delete.php?id=<?= $id ?>">Delete Note</a>
                     </div>
                     <div class="card-body">
