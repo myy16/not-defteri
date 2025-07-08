@@ -8,6 +8,10 @@ if (file_exists($jsonFile)) {
     $notes = json_decode(file_get_contents($jsonFile), true);
 }
 
+if (!isset($notes[$id])) {
+    die("Note Not Found!");
+}
+
 $note = $notes[$id];
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
