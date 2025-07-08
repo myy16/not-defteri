@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $notes = [];
 
         if (file_exists('notes.json')) {
-            $notes = json_decode(file_get_contents('notes.json'), true);
+            $notes = json_decode(file_get_contents('notes.json'), true ) ?? [];
         }
         $newid= array_key_last($notes) + 1; 
 
