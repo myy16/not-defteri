@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
-                <input name='title' type="text" class="form-control" id="title"<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
+                <input name='title' type="text" class="form-control" id="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Note:</label>
