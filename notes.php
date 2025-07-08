@@ -14,10 +14,15 @@
     <h2>Notes:</h2>
     <div class="notes vstack gap-3">
         <?php if (!empty($notes)): ?>
-            <?php foreach ($notes as $note): ?>
+            <?php foreach ($notes as $id => $note): ?>
                 <div class="card">
-                    <div class="card-header">
-                        <?= $note['title'] ?> (<?= $note['date'] ?>)
+                    <div class="card-header d-flex justify-content-between">
+                        
+                        <div>
+                         <?= $note['title'] ?>
+                        (<?= $note['date'] ?>)   
+                        </div>
+                        <a class="btn btn-secondary " href="delete.php?id=<?= $id ?>">Delete Note</a>
                     </div>
                     <div class="card-body">
                         <?= nl2br($note['content']) ?>
