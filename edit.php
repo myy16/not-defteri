@@ -10,11 +10,14 @@ if (file_exists($jsonFile)) {
 
 $note = $notes[$id];
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
-    }
-    if($title || $content ) {
+
+    if ($title === '' || $content === '') {
+        $error = "Title and content cannot be empty!";
+    } else {
+
         $notes[$id]['title'] = $title;
         $notes[$id]['content'] = $content;
 
@@ -23,6 +26,7 @@ $note = $notes[$id];
         header("Location: index.php");
         exit;
     }
+}
 ?>
 
 
@@ -39,6 +43,11 @@ $note = $notes[$id];
 <body>
     <div class="container">
         <h1>Edit Notes</h1>
+
+        <?php if (!empty($error)): ?>
+            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+        <?php endif; ?>
+
         <form method="POST">
             <label for="title" class="form-label">Title:</label>
             <input type="text" name="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
@@ -50,7 +59,7 @@ $note = $notes[$id];
 
 
         </form>
-           <a class="btn btn-primary mt-3" href="index.php">Go Back</a>
+        <a class="btn btn-primary mt-3" href="index.php">Go Back</a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
