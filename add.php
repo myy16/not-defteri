@@ -10,11 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             'date' => date("Y-m-d H:i:s"),
         ];
 
+        $notes = [];
+
         if (file_exists('notes.json')) {
             $notes = json_decode(file_get_contents('notes.json'), true);
         }
+        $newid= count($notes) + 1; 
 
-        $notes[] = $newNote;
+
+        $notes[$newid] = $newNote;
         file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
     }
     header("Location:" . $_SERVER['PHP_SELF']);
