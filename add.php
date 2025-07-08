@@ -20,9 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $notes[$newid] = $newNote;
         file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
+       }if ($title === '' || $content === '') {
+        $error = "Title and content cannot be empty!";
+    } else {
+
+        $notes[$id]['title'] = $title;
+        $notes[$id]['content'] = $content;
+
+        file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+
+        header("Location: index.php");
+        exit;
     }
-    header("Location:" . $_SERVER['PHP_SELF']);
-    exit;
 }
 ?>
 <!DOCTYPE html>
@@ -38,6 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <h1>Not Defteri</h1>
+    
+    <?php if (!empty($error)): ?>
+            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+        <?php endif; ?>
 
     <form method="POST">
         <div class="mb-3">
