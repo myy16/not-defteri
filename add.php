@@ -13,14 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $notes = [];
 
         if (file_exists('notes.json')) {
-            $notes = json_decode(file_get_contents('notes.json'), true ) ?? [];
+            $notes = json_decode(file_get_contents('notes.json'), true) ?? [];
         }
-        $newid= array_key_last($notes) + 1; 
+        $newid = array_key_last($notes) + 1;
 
 
         $notes[$newid] = $newNote;
         file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
-       }if ($title === '' || $content === '') {
+    }
+    if ($title === '' || $content === '') {
         $error = "Title and content cannot be empty!";
     } else {
 
@@ -47,10 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
     <h1>Add Note</h1>
-    
+
     <?php if (!empty($error)): ?>
-            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-        <?php endif; ?>
+        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php endif; ?>
 
     <form method="POST">
         <div class="mb-3">
