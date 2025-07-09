@@ -45,30 +45,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
+
+    <h1>Edit Note</h1>
     
-        <h1>Edit Note</h1>
+    <div class="text-end mb-3">
+        <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
+        <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
 
-        <div class="text-end mb-3">
-         <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
-        </div>
+    </div>
 
-        <?php if (!empty($error)): ?>
-            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-        <?php endif; ?>
-
+    <?php if (!empty($error)): ?>
+        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php endif; ?>
+    <div class="container">
         <form method="POST">
+            <br><br><br>
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
                 <input name='title' type="text" class="form-control" id="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
             </div>
+            <br>
             <div class="mb-3">
                 <label for="content" class="form-label">Note:</label>
                 <textarea name="content" class="form-control" id="content" rows="3" placeholder="Content"><?php echo htmlspecialchars($note['content']); ?></textarea>
             </div>
-            <button type="submit" class="btn btn-primary fw-bold fs-4">Save</button>
-
-
         </form>
+    </div>
+
+    </form>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

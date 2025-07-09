@@ -15,10 +15,11 @@
     <div class="text-end mb-3">
         <a class="btn btn-primary fw-bold fs-3" href="add.php">+</a>
     </div>
-    <div class="notes-container">
+    <div class="notes-container ">
+        <br><br><br><br><br><br>
         <?php if (!empty($notes)): ?>
             <?php foreach ($notes as $id => $note): ?>
-                <div class="card">
+                <div class="card ">
                     <div class="card-header d-flex justify-content-between">
 
                         <div>

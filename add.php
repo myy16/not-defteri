@@ -52,24 +52,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div class="text-end mb-3">
         <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
+        <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
     </div>
 
     <?php if (!empty($error)): ?>
         <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
     <?php endif; ?>
-
-    <form method="POST">
-        <div class="mb-3">
-            <label for="title" class="form-label">Title:</label>
-            <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
-        </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">Note:</label>
-            <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary fw-bold fs-4">Save</button> 
-
-    </form>
+    <div class="container">
+        <br><br><br>
+        <form method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Note:</label>
+                <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
+            </div>
+        </form>
+    </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
