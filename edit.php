@@ -48,6 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
         <h1>Edit Note</h1>
 
+        <div class="text-end mb-3">
+         <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
+        </div>
+
         <?php if (!empty($error)): ?>
             <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
         <?php endif; ?>
@@ -61,12 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="content" class="form-label">Note:</label>
                 <textarea name="content" class="form-control" id="content" rows="3" placeholder="Content"><?php echo htmlspecialchars($note['content']); ?></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary fw-bold fs-4">Save</button>
 
 
         </form>
-        <a class="btn btn-primary mt-3" href="index.php">Notes</a>
-  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 

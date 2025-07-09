@@ -12,6 +12,9 @@
 <body>
 
     <h1>Notes</h1>
+    <div class="text-end mb-3">
+        <a class="btn btn-primary fw-bold fs-3" href="add.php">+</a>
+    </div>
     <div class="notes vstack gap-3">
         <?php if (!empty($notes)): ?>
             <?php foreach ($notes as $id => $note): ?>
@@ -38,8 +41,6 @@
 <?php else: ?>
     <p>Do not add yet any note</p>
 <?php endif; ?>
-
- <a class="btn btn-primary mt-3" href="add.php">Add Note</a>
  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
