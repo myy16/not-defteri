@@ -15,16 +15,16 @@
     <div class="text-end mb-3">
         <a class="btn btn-primary fw-bold fs-3" href="add.php">+</a>
     </div>
-    <div class="notes vstack gap-3">
+    <div class="notes-container">
         <?php if (!empty($notes)): ?>
             <?php foreach ($notes as $id => $note): ?>
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        
+
                         <div>
-                         <?= $note['title'] ?>
-                        (<?= $note['date'] ?>)   
-                        </div>
+                            <?= $note['title'] ?>
+                            (<?= $note['date'] ?>)
+                        </div>class="btn-right">
                         <a class="btn btn-secondary " href="edit.php?id=<?= $id ?>">Edit Note</a>
                         <a class="btn btn-secondary " href="delete.php?id=<?= $id ?>">Delete Note</a>
                     </div>
@@ -34,14 +34,14 @@
                 </div>
             <?php endforeach; ?>
     </div>
-    
-       
-    
-        
+
+
+
+
 <?php else: ?>
     <p>Do not add yet any note</p>
 <?php endif; ?>
- 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.7/js/bootstrap.min.js" integrity="sha512-zKeerWHHuP3ar7kX2WKBSENzb+GJytFSBL6HrR2nPSR1kOX1qjm+oHooQtbDpDBSITgyl7QXZApvDfDWvKjkUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
