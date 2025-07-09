@@ -24,9 +24,11 @@
                         <div>
                             <?= $note['title'] ?>
                             (<?= $note['date'] ?>)
-                        </div>class="btn-right">
-                        <a class="btn btn-secondary " href="edit.php?id=<?= $id ?>">Edit Note</a>
-                        <a class="btn btn-secondary " href="delete.php?id=<?= $id ?>">Delete Note</a>
+                        </div>
+                        <div class="btn-right">
+                            <a class="btn btn-secondary btn-sm me-2" href="edit.php?id=<?= $id ?>">Edit Note</a>
+                            <a class="btn btn-danger btn-sm" href="delete.php?id=<?= $id ?>">Delete Note</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <?= nl2br($note['content']) ?>

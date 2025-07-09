@@ -15,6 +15,14 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.notes-container{
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff;
+}
+
 h1 {
   text-align: center;
   color: #333;
@@ -36,6 +44,12 @@ textarea {
 
 .btn-primary {
   background-color: #ff4500;
+}
+
+.btn-right {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
 }
 
 button:hover {
