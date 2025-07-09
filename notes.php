@@ -12,11 +12,11 @@
 <body>
 
     <h1>Notes</h1>
-    <div class="text-end mb-3">
+    <div class="text-xl-center mb-3">
         <a class="btn btn-primary fw-bold fs-3" href="add.php">+</a>
     </div>
     <div class="notes-container ">
-        <br><br><br><br><br><br>
+        <br><br><br><br><br>
         <?php if (!empty($notes)): ?>
             <?php foreach ($notes as $id => $note): ?>
                 <div class="card ">

@@ -30,7 +30,7 @@ body {
   background-color: #fff;
   max-width: 850px;
   background-attachment: local;
-
+  margin: 0 auto;
 }
 
 h1 {

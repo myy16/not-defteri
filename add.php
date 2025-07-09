@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
     <h1>Add Note</h1>
 
-    <div class="text-end mb-3">
+    <div class="text-xl-center mb-3">
         <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
         <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
     </div>
