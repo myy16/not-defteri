@@ -51,26 +51,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <div class="container">
         <div class="header-flex">
             <h1>Add Note</h1>
-
-            <div class="btn-right">
-                <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
-                <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
-            </div>
+            <form method="POST">
+                <div class="btn-right">
+                    <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
+                    <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
+                </div>
         </div>
         <?php if (!empty($error)): ?>
             <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
         <?php endif; ?>
 
         <br><br><br><br>
-        <form method="POST">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title:</label>
-                <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
-            </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Note:</label>
-                <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
-            </div>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Note:</label>
+            <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
+        </div>
         </form>
     </div>
 
