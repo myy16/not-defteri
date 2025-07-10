@@ -57,11 +57,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
                 </div>
         </div>
+
+        <br><br><br><br>
         <?php if (!empty($error)): ?>
             <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
         <?php endif; ?>
-
-        <br><br><br><br>
 
         <div class="mb-3">
             <label for="title" class="form-label">Title:</label>
