@@ -10,13 +10,15 @@
 </head>
 
 <body>
-
+    <div class="container">
+        <div class="header-flex">
     <h1>Notes</h1>
     <div class="text-xl-center mb-3">
         <a class="btn btn-primary fw-bold fs-3" href="add.php">+</a>
     </div>
+    </div>
     <div class="notes-container ">
-        <br><br><br><br><br>
+        
         <?php if (!empty($notes)): ?>
             <?php foreach ($notes as $id => $note): ?>
                 <div class="card ">
@@ -39,7 +41,7 @@
     </div>
 
 
-
+</div>
 
 <?php else: ?>
     <p>Do not add yet any note</p>

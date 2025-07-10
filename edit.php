@@ -45,21 +45,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-
-    <h1>Edit Note</h1>
-    
-    <div class="text-xl-center mb-3">
-        <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
-        <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
-
-    </div>
-
-    <?php if (!empty($error)): ?>
-        <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php endif; ?>
     <div class="container">
+        <div class="header-flex">
+            <h1>Edit Note</h1>
+
+            <div class="btn-right">
+                <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
+                <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
+
+            </div>
+        </div>
+
+        <?php if (!empty($error)): ?>
+            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+        <?php endif; ?>
+
         <form method="POST">
-            <br><br><br>
+            <br><br><br><br>
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
                 <input name='title' type="text" class="form-control" id="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
