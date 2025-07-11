@@ -19,14 +19,14 @@ include "head.php";
         <div class="header-flex">
             <h1>Notes</h1>
             <div class="text-xl-center mb-3">
-                <a class="btn btn-primary fw-bold fs-3" href="add.php">+</a>
+                <a class="btn btn-primary fw-bold fs-3" href="add.php" title="Add Note"data-bs-toggle="tooltip" data-bs-placement="bottom">+</a>
             </div>
         </div>
         <div class="notes-container ">
 
             <?php if (!empty($notes)): ?>
                 <?php foreach ($notes as $id => $note): ?>
-                    <div class="card mb-3">
+                    <div class="card">
                         <div class="card-header d-flex justify-content-between">
 
                             <div>

@@ -1,7 +1,7 @@
 body {
   font-family: "Courier New", Courier, monospace;
   background: url('./img/wooden.jpg') center center / cover no-repeat;
-  margin: 0;
+  margin: 10px;
   padding: 20px;
   width: 98%;
 }
@@ -32,7 +32,8 @@ body {
 
 
 .container {
-  max-width: 700px;
+  max-height: 1210px;
+  max-width: 800px;
   margin: 0 auto;
   background: url('./img/notebook2.png') center center / cover no-repeat;
   padding: 10px;
@@ -44,12 +45,11 @@ body {
 }
 
 .notes-container{
- 
-  max-height: 1000px;
+  max-height: 900px;
   overflow-y: auto;
-  border: 1px ;
-  padding: 1px;
-  max-width: 950px;
+  border: 3px ;
+  padding: 10px;
+  max-width: 750px;
   background-attachment: local;
   margin: 5 auto;
   margin-top: 90px;
