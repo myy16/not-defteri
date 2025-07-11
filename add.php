@@ -46,28 +46,27 @@ include "head.php";
 
 <body>
     <div class="container">
-        <div class="header-flex">
-            <h1>Add Note</h1>
-            <form method="POST">
-                <div class="btn-right">
-                    <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
-                    <button type="submit" class="btn btn-danger fw-bold fs-4">Save</button>
-                </div>
-        </div>
 
-        <br><br><br><br>
-        <?php if (!empty($error)): ?>
-            <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
-        <?php endif; ?>
+        <?php $header = "Add Note"; ?>
+        <?php $currentPage = 'add'; ?>
+        <?php $form_id = 'add_form'; ?>
+        <?php include "header.php"; ?>
 
-        <div class="mb-3">
-            <label for="title" class="form-label">Title:</label>
-            <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
-        </div>
-        <div class="mb-3">
-            <label for="content" class="form-label">Note:</label>
-            <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
-        </div>
+        <form method="POST" id="<?= $form_id ?>">
+
+            <br><br><br><br>
+            <?php if (!empty($error)): ?>
+                <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+            <?php endif; ?>
+
+            <div class="mb-3">
+                <label for="title" class="form-label">Title:</label>
+                <input name='title' type="text" class="form-control" id="title" placeholder="To do..">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Note:</label>
+                <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
+            </div>
         </form>
     </div>
 

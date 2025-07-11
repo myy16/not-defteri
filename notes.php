@@ -16,12 +16,11 @@ include "head.php";
 
 <body>
     <div class="container">
-        <div class="header-flex">
-            <h1>Notes</h1>
-            <div class="text-xl-center mb-3">
-                <a class="btn btn-primary fw-bold fs-3" href="add.php" title="Add Note"data-bs-toggle="tooltip" data-bs-placement="bottom">+</a>
-            </div>
-        </div>
+        <?php
+        $header = "Notes";
+        $currentPage = 'notes';
+        include "header.php";
+        ?>
         <div class="notes-container ">
 
             <?php if (!empty($notes)): ?>
@@ -30,7 +29,7 @@ include "head.php";
                         <div class="card-header d-flex justify-content-between">
 
                             <div>
-                                <?= $note['title'] ?>
+                                <?php echo $note['title'] ?>
                                 (<?= $note['date'] ?>)
                             </div>
                             <div class="btn-right">
