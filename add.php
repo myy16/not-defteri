@@ -76,7 +76,16 @@ include "head.php";
 
             <br><br><br><br>
             <?php if (!empty($error)): ?>
-                <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+                <div class="alert alert-danger">
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if ($showSuccessModal): ?>
+                <div class="alert alert-success text-center">
+                    <h5>✅ Successfully!</h5>
+                    Your note added!
+                </div>
             <?php endif; ?>
 
             <div class="mb-3">
@@ -88,21 +97,6 @@ include "head.php";
                 <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
             </div>
         </form>
-        <?php if ($showSuccessModal): ?>
-
-            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="successModalLabel">✅ Successful!</h5>
-                        </div>
-                        <div class="modal-body">
-                            <p class="mb-0">Your note added!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endif; ?>
     </div>
 
     <?php include "footer.php"; ?>

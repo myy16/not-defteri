@@ -71,13 +71,21 @@ include "head.php";
         $form_id = 'edit_form';
         include "header.php" ?>
 
+        <br><br><br><br>
         <form method="POST" id="<?= $form_id ?>">
             <?php if (!empty($error)): ?>
-                <p style="color:red;"><?php echo htmlspecialchars($error); ?></p>
+                <div class="alert alert-danger">
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
             <?php endif; ?>
 
+            <?php if ($showSuccessModal): ?>
+                <div class="alert alert-success text-center">
+                    <h5> ✅ Successfully!</h5>
+                    Your note updated!
+                </div>
+            <?php endif; ?>
 
-            <br><br><br><br>
             <div class="mb-3">
                 <label for="title" class="form-label">Title:</label>
                 <input name='title' type="text" class="form-control" id="title" value="<?php echo htmlspecialchars($note['title']); ?>" placeholder="Title">
@@ -89,24 +97,6 @@ include "head.php";
             </div>
         </form>
     </div>
-
-    <?php if ($showSuccessModal): ?>
-
-        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="successModalLabel">✅ Successfully!</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p class="mb-0">Your note updated!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
-    </div>
-
 
     <?php include "footer.php"; ?>
 
