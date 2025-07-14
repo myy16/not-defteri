@@ -5,68 +5,20 @@ if (file_exists('notes.json')) {
     $notes = json_decode(file_get_contents('notes.json'), true);
 }
 
-?>
-<!DOCTYPE html>
-<html>
-
-<?php
 $title = "Notes";
-include "head.php";
-?>
 
-<body>
-    <div class="container">
+$datas = [
+    'title' => "Notes",
+    'currentPage' => 'notes',
+    'buttons' => [
+        [
+            'type' => 'add',
+            'href' => 'add.php',
+            'class' => 'btn btn-primary fw-bold fs-3',
+            'text' => '+',
+            'title' => 'Add Note',
+        ]
+    ]
+];
 
-
-        <?php
-        $datas = [
-            'title' => "Notes",
-            'currentPage' => 'notes',
-            'buttons' => [
-                [
-                    'type' => 'add',
-                    'href' => 'add.php',
-                    'class' => 'btn btn-primary fw-bold fs-3',
-                    'text' => '+',
-                    'title' => 'Add Note',
-                ]
-            ]
-        ];
-
-        include "header.php";
-        ?>
-        <div class="notes-container ">
-
-            <?php if (!empty($notes)): ?>
-                <?php foreach ($notes as $id => $note): ?>
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-
-                            <div>
-                                <?php echo $note['title'] ?>
-                                (<?= $note['date'] ?>)
-                            </div>
-                            <div class="btn-right">
-                                <a class="btn btn-secondary btn-sm me-2" href="edit.php?id=<?= $id ?>">Edit Note</a>
-                                <a class="btn btn-danger btn-sm" href="delete.php?id=<?= $id ?>">Delete Note</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <?= nl2br($note['content']) ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-        </div>
-
-
-    </div>
-
-<?php else: ?>
-    <p>Do not add yet any note</p>
-<?php endif; ?>
-
-<?php include "footer.php"; ?>
-
-</body>
-
-</html>
+include 'templates/notes.php';
