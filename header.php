@@ -1,13 +1,24 @@
 <div class="header-flex">
-    <h1><?php echo $header; ?></h1>
+    <h1><?= $datas['title'] ?></h1>
 
     <div class="btn-right">
-        <?php if ($currentPage == 'notes'): ?>
-            <a class="btn btn-primary fw-bold fs-3" href="add.php" title="Add Note" data-bs-toggle="tooltip" data-bs-placement="bottom">+</a>
-        <?php else: ?>
-            <a class="btn btn-primary fw-bold fs-4" href="index.php">Notes</a>
-            <button type="submit" class="btn btn-danger fw-bold fs-4" form="<?php echo $form_id ?>">Save</button>
-        <?php endif; ?>
+        <?php foreach ($datas['buttons'] as $button): ?>
+            <?php if (isset($button['type']) && $button['type'] === 'submit'): ?>
+                <button type="submit"
+                    form="<?= $button['form_id'] ?>"
+                    class="<?= $button['class'] ?>"
+                    title="<?= $button['title'] ?>"
+                    data-bs-toggle="tooltip">
+                    <?= $button['text'] ?>
+                </button>
+            <?php else: ?>
+                <a href="<?= $button['href'] ?>"
+                    class="<?= $button['class'] ?>"
+                    title="<?= $button['title'] ?>"
+                    data-bs-toggle="tooltip">
+                    <?= $button['text'] ?>
+                </a>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
-
 </div>

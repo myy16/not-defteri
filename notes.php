@@ -16,9 +16,23 @@ include "head.php";
 
 <body>
     <div class="container">
+
+
         <?php
-        $header = "Notes";
-        $currentPage = 'notes';
+        $datas = [
+            'title' => "Notes",
+            'currentPage' => 'notes',
+            'buttons' => [
+                [
+                    'type' => 'add',
+                    'href' => 'add.php',
+                    'class' => 'btn btn-primary fw-bold fs-3',
+                    'text' => '+',
+                    'title' => 'Add Note',
+                ]
+            ]
+        ];
+
         include "header.php";
         ?>
         <div class="notes-container ">

@@ -45,9 +45,28 @@ include "head.php";
 <body>
     <div class="container">
 
-        <?php $header = "Edit Note";
-        $currentPage = 'edit';
-        $form_id="edit_form";
+        <?php
+
+        $datas = [
+            'title' => "Edit Note",
+            'buttons' => [
+                [
+                    'href' => 'index.php',
+                    'class' => 'btn btn-primary fw-bold fs-4',
+                    'text' => 'Notes',
+                    'title' => 'Back to Notes'
+                ],
+                [
+                    'type' => 'submit',
+                    'form_id' => 'edit_form',
+                    'class' => 'btn btn-danger fw-bold fs-4',
+                    'text' => 'Save',
+                    'title' => 'Save Note'
+                ]
+            ]
+        ];
+
+        $form_id = 'edit_form';
         include "header.php" ?>
 
         <form method="POST" id="<?= $form_id ?>">

@@ -40,17 +40,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 
 <?php
-$title = "Add Note";
+$datas = [
+    'title' => "Add Note",
+    'buttons' => [
+        [
+            'href' => 'index.php',
+            'class' => 'btn btn-primary fw-bold fs-4',
+            'text' => 'Notes',
+            'title' => 'Back to Notes'
+        ],
+        [
+            'type' => 'submit',
+            'form_id' => 'add_form',
+            'class' => 'btn btn-danger fw-bold fs-4',
+            'text' => 'Save',
+            'title' => 'Save Note'
+        ]
+    ]
+];
+
 include "head.php";
 ?>
 
 <body>
     <div class="container">
 
-        <?php $header = "Add Note"; ?>
-        <?php $currentPage = 'add'; ?>
-        <?php $form_id = 'add_form'; ?>
-        <?php include "header.php"; ?>
+        <?php
+        $form_id = 'add_form';
+        include "header.php";
+        ?>
 
         <form method="POST" id="<?= $form_id ?>">
 
