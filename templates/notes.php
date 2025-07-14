@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<?php include "head.php"; ?>
+<?php include "../head.php"; ?>
 
 <body>
     <div class="container">
@@ -19,8 +19,8 @@
                                 (<?= $note['date'] ?>)
                             </div>
                             <div class="btn-right">
-                                <a class="btn btn-secondary btn-sm me-2" href="edit.php?id=<?= $id ?>">Edit Note</a>
-                                <a class="btn btn-danger btn-sm" href="delete.php?id=<?= $id ?>">Delete Note</a>
+                                <a class="btn btn-secondary btn-sm me-2" href="./edit.php?id=<?= $id ?>">Edit Note</a>
+                                <a class="btn btn-danger btn-sm" href="./delete.php?id=<?= $id ?>">Delete Note</a>
                             </div>
                         </div>
                         <div class="card-body">

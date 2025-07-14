@@ -42,7 +42,7 @@ $datas = [
     'title' => "Add Note",
     'buttons' => [
         [
-            'href' => '../index.php',
+            'href' => '../pages/notes.php',
             'class' => 'btn btn-primary fw-bold fs-4',
             'text' => 'Notes',
             'title' => 'Back to Notes'

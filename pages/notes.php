@@ -13,7 +13,7 @@ $datas = [
     'buttons' => [
         [
             'type' => 'add',
-            'href' => '../pages/add.php',
+            'href' => 'pages/add.php',
             'class' => 'btn btn-primary fw-bold fs-3',
             'text' => '+',
             'title' => 'Add Note',

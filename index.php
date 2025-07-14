@@ -1,3 +1,3 @@
 <?php
-
-include 'pages/notes.php';
+chdir("pages");
+include '../pages/notes.php';
