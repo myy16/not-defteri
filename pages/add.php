@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $notes = [];
 
         if (file_exists('../notes.json')) {
-            $notes = json_decode(file_get_contents('notes.json'), true) ?? [];
+            $notes = json_decode(file_get_contents('../notes.json'), true) ?? [];
         }
         $newid = array_key_last($notes) + 1;
 
@@ -42,7 +42,7 @@ $datas = [
     'title' => "Add Note",
     'buttons' => [
         [
-            'href' => '../pages/notes.php',
+            'href' => '../index.php',
             'class' => 'btn btn-primary fw-bold fs-4',
             'text' => 'Notes',
             'title' => 'Back to Notes'

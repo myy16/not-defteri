@@ -19,8 +19,8 @@
                                 (<?= $note['date'] ?>)
                             </div>
                             <div class="btn-right">
-                                <a class="btn btn-secondary btn-sm me-2" href="./edit.php?id=<?= $id ?>">Edit Note</a>
-                                <a class="btn btn-danger btn-sm" href="./delete.php?id=<?= $id ?>">Delete Note</a>
+                                <a class="btn btn-secondary btn-sm me-2" href="pages/edit.php?id=<?= $id ?>">Edit Note</a>
+                                <a class="btn btn-danger btn-sm" href="pages/delete.php?id=<?= $id ?>">Delete Note</a>
                             </div>
                         </div>
                         <div class="card-body">
