@@ -5,7 +5,7 @@
 
 <body>
     <div class="container">
-        <?php include "header.php"; ?>
+        <?php include "../header.php"; ?>
 
         <div class="notes-container ">
 
@@ -35,7 +35,7 @@
     <p>Do not add yet any note</p>
 <?php endif; ?>
 
-<?php include "footer.php"; ?>
+<?php include "../footer.php"; ?>
 
 </body>
 

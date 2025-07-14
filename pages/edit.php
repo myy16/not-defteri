@@ -1,5 +1,5 @@
 <?php
-$jsonFile = 'notes.json';
+$jsonFile = '../notes.json';
 $showSuccessModal = false;
 $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
 
@@ -39,7 +39,7 @@ $datas = [
     'title' => "Edit Note",
     'buttons' => [
         [
-            'href' => 'index.php',
+            'href' => '../index.php',
             'class' => 'btn btn-primary fw-bold fs-4',
             'text' => 'Notes',
             'title' => 'Back to Notes'
@@ -56,4 +56,4 @@ $datas = [
 
 $form_id = 'edit_form';
 
-include "templates/edit.php";
+include "../templates/edit.php";

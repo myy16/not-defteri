@@ -1,3 +1,3 @@
 <?php
 
-include 'notes.php';
+include 'pages/notes.php';

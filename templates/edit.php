@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
 
-<?php include "head.php"; ?>
+<?php include "../head.php"; ?>
 
 <body>
     <div class="container">
 
-        <?php include "header.php" ?>
+        <?php include "../header.php" ?>
 
         <br><br><br><br>
         <form method="POST" id="<?= $form_id ?>">
@@ -35,7 +35,7 @@
         </form>
     </div>
 
-    <?php include "footer.php"; ?>
+    <?php include "../footer.php"; ?>
 
 </body>
 

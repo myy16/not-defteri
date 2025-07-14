@@ -1,8 +1,8 @@
 <?php
 $notes = [];
 
-if (file_exists('notes.json')) {
-    $notes = json_decode(file_get_contents('notes.json'), true);
+if (file_exists('../notes.json')) {
+    $notes = json_decode(file_get_contents('../notes.json'), true);
 }
 
 $title = "Notes";
@@ -13,7 +13,7 @@ $datas = [
     'buttons' => [
         [
             'type' => 'add',
-            'href' => 'add.php',
+            'href' => '../pages/add.php',
             'class' => 'btn btn-primary fw-bold fs-3',
             'text' => '+',
             'title' => 'Add Note',
@@ -21,4 +21,4 @@ $datas = [
     ]
 ];
 
-include 'templates/notes.php';
+include '../templates/notes.php';
