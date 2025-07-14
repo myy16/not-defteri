@@ -11,5 +11,10 @@
             var tooltip = new bootstrap.Tooltip(TitleElement);
         }
 
+        <?php if (isset($showSuccessModal) && $showSuccessModal): ?>
+        var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+        successModal.show();
+        <?php endif; ?>
+
     });
 </script>

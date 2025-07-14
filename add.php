@@ -1,5 +1,6 @@
 <?php
 $jsonFile = 'notes.json';
+$showSuccessModal = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $title = trim($_POST['title']);
@@ -29,10 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $notes[$newid] = $newNote;
 
-        file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-
-        header("Location: index.php");
-        exit;
+        if (file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
+            $showSuccessModal = true;
+        } else {
+            $error = "An error occurred while saving the note.";
+        }
     }
 }
 ?>
@@ -86,6 +88,21 @@ include "head.php";
                 <textarea name='content' class="form-control" id="content" rows="3" placeholder="buy ticket,go shopping..."></textarea>
             </div>
         </form>
+        <?php if ($showSuccessModal): ?>
+
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">✅ Successful!</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-0">Your note added!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 
     <?php include "footer.php"; ?>
