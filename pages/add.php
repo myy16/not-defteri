@@ -1,4 +1,7 @@
 <?php
+
+require '../smarty.php';
+
 $jsonFile = '../notes.json';
 $showSuccessModal = false;
 
@@ -59,4 +62,9 @@ $datas = [
 
 $form_id = 'add_form';
 
-include '../templates/pages/add.php';
+$smarty->assign('title', 'Add Note');
+$smarty->assign('datas', $datas);
+$smarty->assign('showSuccessModal', $showSuccessModal);
+$smarty->assign('error', isset($error) ? $error : '');
+$smarty->assign('form_id', 'add_form');
+$smarty->display('pages/add.tpl');
