@@ -37,4 +37,4 @@ $datas = [
 $smarty->assign('title','Notes');
 $smarty->assign('datas', $datas);
 $smarty->assign('notes', $notes);
-$smarty->display('notes.tpl');
+$smarty->display('pages/notes.tpl');

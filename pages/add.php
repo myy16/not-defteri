@@ -59,4 +59,4 @@ $datas = [
 
 $form_id = 'add_form';
 
-include '../templates/add.php';
+include '../templates/pages/add.php';

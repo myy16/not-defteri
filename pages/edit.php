@@ -56,4 +56,4 @@ $datas = [
 
 $form_id = 'edit_form';
 
-include "../templates/edit.php";
+include "../templates/pages/edit.php";

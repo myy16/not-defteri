@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 
-{include "../head.tpl"}
+{include "../../head.tpl"}
 
 <body>
     <div class="container">
-        {include "../header.tpl"}
+        {include "../../header.tpl"}
 
         <div class="notes-container ">
 
@@ -16,7 +16,7 @@
 
                             <div>
                                 {$note.title}
-                                ({ $note.date})
+                                ({$note.date})
                             </div>
                             <div class="btn-right">
                                 <a
@@ -41,7 +41,7 @@
         <p>Do not add yet any note</p>
     {/if}
 
-    {include "../footer.tpl"}
+    {include "../../footer.tpl"}
 </body>
 
 </html>
