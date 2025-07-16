@@ -1,4 +1,7 @@
 <?php
+
+require '../smarty.php';
+
 $jsonFile = '../notes.json';
 $showSuccessModal = false;
 $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
@@ -56,4 +59,10 @@ $datas = [
 
 $form_id = 'edit_form';
 
-include "../templates/pages/edit.php";
+$smarty->assign('form_id', $form_id);
+$smarty->assign('note', $note);
+$smarty->assign('datas', $datas);
+$smarty->assign('showSuccessModal', $showSuccessModal);
+$smarty->assign('error', isset($error) ? $error : '');
+$smarty->assign('title', 'Edit Note');
+$smarty->display('pages/edit.tpl');
