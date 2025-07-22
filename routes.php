@@ -17,6 +17,10 @@ $app->get('/notes/add', function (Request $request, Response $response, $args) {
     include  'pages/add.php';
     exit;
 });
+$app->post('/notes/add', function (Request $request, Response $response, $args) {
+    include  'pages/add.php';
+    exit;
+});
 
 $app->get('/notes/{id}/edit', function (Request $request, Response $response, $args) {
 
