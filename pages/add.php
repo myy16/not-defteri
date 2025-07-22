@@ -1,8 +1,8 @@
 <?php
 
-require '../smarty.php';
+require 'smarty.php';
 
-$jsonFile = '../notes.json';
+$jsonFile = 'notes.json';
 $showSuccessModal = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -18,14 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $notes = [];
 
-        if (file_exists('../notes.json')) {
-            $notes = json_decode(file_get_contents('../notes.json'), true) ?? [];
+        if (file_exists('notes.json')) {
+            $notes = json_decode(file_get_contents('notes.json'), true) ?? [];
         }
         $newid = array_key_last($notes) + 1;
 
 
         $notes[$newid] = $newNote;
-        file_put_contents('../notes.json', json_encode($notes, JSON_PRETTY_PRINT));
+        file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
     }
     if ($title === '' || $content === '') {
         $error = "Title and content cannot be empty!";
@@ -45,7 +45,7 @@ $datas = [
     'title' => "Add Note",
     'buttons' => [
         [
-            'href' => '../index.php',
+            'href' => '/notes',
             'class' => 'btn btn-primary fw-bold fs-4',
             'text' => 'Notes',
             'title' => 'Back to Notes'

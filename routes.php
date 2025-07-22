@@ -14,3 +14,11 @@ $app->get('/notes', function (Request $request, Response $response, $args) {
     include  'pages/notes.php';
     exit;
 });
+
+$app->get('/notes/add', function (Request $request, Response $response, $args) {
+    // $response->getBody()->write("Notes");
+    // return $response;
+    include  'pages/add.php';
+    exit;
+});
+
