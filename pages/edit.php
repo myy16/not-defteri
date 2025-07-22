@@ -1,10 +1,9 @@
 <?php
 
-require '../smarty.php';
+require 'smarty.php';
 
-$jsonFile = '../notes.json';
+$jsonFile = 'notes.json';
 $showSuccessModal = false;
-$id = isset($_GET['id']) ? (int)$_GET['id'] : null;
 
 $notes = [];
 
@@ -42,7 +41,7 @@ $datas = [
     'title' => "Edit Note",
     'buttons' => [
         [
-            'href' => '../index.php',
+            'href' => '/notes',
             'class' => 'btn btn-primary fw-bold fs-4',
             'text' => 'Notes',
             'title' => 'Back to Notes'
