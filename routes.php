@@ -18,7 +18,7 @@ $app->get('/notes/add', function (Request $request, Response $response, $args) {
     exit;
 });
 $app->post('/notes/add', function (Request $request, Response $response, $args) {
-    include  'pages/add.php';
+    include  'pages/add_post.php';
     exit;
 });
 
