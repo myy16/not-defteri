@@ -1,7 +1,6 @@
 <?php
 
 $jsonFile = 'notes.json';
-$showSuccessModal = false;
 
 $notes = [];
 if (file_exists($jsonFile)) {
@@ -11,23 +10,15 @@ if (file_exists($jsonFile)) {
 $title = trim($_POST['title']);
 $content = trim($_POST['content']);
 
-if ($title === '' || $content === '') {
-    $error = "Title and content cannot be empty!";
-} else {
+$note = [
+    'title' => $title,
+    'content' => $content,
+    'created_at' => date('Y-m-d H:i:s'),
+];
 
-    $notes[$id]['title'] = $title;
-    $notes[$id]['content'] = $content;
+$notes[$id] = $note;
 
-    if (file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
-        $showSuccessModal = true;
-    } else {
-        $error = "An error occurred while saving the note.";
-    }
-}
-
-$title = "Edit Note";
-
-$form_id = 'edit_form';
+file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 header('Location: /notes');
 exit;
