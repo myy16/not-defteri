@@ -30,7 +30,7 @@ $app->get('/notes/{id}/edit', function (Request $request, Response $response, $a
 
 $app->post('/notes/{id}/edit', function (Request $request, Response $response, $args) {
     $id = $args['id'] ?? null;
-    include  'pages/edit.php';
+    include  'pages/edit_post.php';
     exit;
 });
 
