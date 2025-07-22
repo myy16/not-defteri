@@ -1,5 +1,7 @@
 {
     "require": {
-        "smarty/smarty": "^5.5"
+        "smarty/smarty": "^5.5",
+        "slim/slim": "^4.14",
+        "guzzlehttp/psr7": "^2.7"
     }
 }
