@@ -31,6 +31,15 @@ $app->get('/notes/{id}/edit', function (Request $request, Response $response, $a
     exit;
 });
 
+$app->post('/notes/{id}/edit', function (Request $request, Response $response, $args) {
+
+    $id = $args['id'] ?? null;
+
+    include  'pages/edit.php';
+
+    exit;
+});
+
 $app->get('/notes/{id}/delete', function (Request $request, Response $response, $args) {
 
     $id = $args['id'] ?? null;
