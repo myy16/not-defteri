@@ -127,6 +127,7 @@ class NotesController
         exit;
     }
 
+    // edit
     public function edit(Request $request, Response $response, $args)
     {
         require 'smarty.php';
@@ -181,6 +182,7 @@ class NotesController
         $smarty->display('pages/edit.tpl');
     }
 
+    // edit_post
     public function update(Request $request, Response $response, $args)
     {
         $jsonFile = 'notes.json';
@@ -206,6 +208,25 @@ class NotesController
         file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
         header('Location: /notes');
+        exit;
+    }
+
+    // delere_post
+    public function delete(Request $request, Response $response, $args)
+    {
+        $notes = [];
+
+        if (file_exists('notes.json')) {
+            $notes = json_decode(file_get_contents('notes.json'), true);
+        }
+
+        $id = $args['id'] ?? null;
+
+        if (isset($notes[$id])) {
+            unset($notes[$id]);
+            file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
+        }
+        header("Location: /notes");
         exit;
     }
 }

@@ -18,8 +18,4 @@ $app->get('/notes/{id}/edit', NotesController::class . ':edit');
 
 $app->post('/notes/{id}/edit', NotesController::class . ':update');
 
-// $app->post('/notes/{id}/delete', function (Request $request, Response $response, $args) {
-//     $id = $args['id'] ?? null;
-//     include  'pages/delete.php';
-//     exit;
-// });
+$app->post('/notes/{id}/delete', NotesController::class . ':delete');
