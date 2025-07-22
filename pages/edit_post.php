@@ -4,6 +4,9 @@ $jsonFile = 'notes.json';
 $showSuccessModal = false;
 
 $notes = [];
+if (file_exists($jsonFile)) {
+    $notes = json_decode(file_get_contents($jsonFile), true);
+}
 
 $title = trim($_POST['title']);
 $content = trim($_POST['content']);
