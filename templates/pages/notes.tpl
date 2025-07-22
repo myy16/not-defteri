@@ -18,15 +18,23 @@
                                 {$note.title}
                                 ({$note.date})
                             </div>
+
                             <div class="btn-right">
                                 <a
                                     class="btn btn-secondary btn-sm me-2"
                                     href="/notes/{$id}/edit"
                                 >Edit Note</a>
-                                <a
-                                    class="btn btn-danger btn-sm"
-                                    href="/notes/{$id}/delete"
-                                >Delete Note</a>
+                                <form
+                                    method="post"
+                                    action="/notes/{$id}/delete"
+                                >
+                                    <button
+                                        type="submit"
+                                        class="btn btn-danger btn-sm"
+                                    >
+                                        Delete Note
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div class="card-body">
