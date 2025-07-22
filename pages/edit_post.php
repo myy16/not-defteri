@@ -13,7 +13,7 @@ $content = trim($_POST['content']);
 $note = [
     'title' => $title,
     'content' => $content,
-    'created_at' => date('Y-m-d H:i:s'),
+    'date' => date('Y-m-d H:i:s'),
 ];
 
 $notes[$id] = $note;
