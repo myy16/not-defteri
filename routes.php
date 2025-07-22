@@ -8,34 +8,31 @@ $app->get('/', function (Request $request, Response $response, $args) {
     exit;
 });
 
-$app->get('/notes', function (Request $request, Response $response, $args) {
-    include  'pages/notes.php';
-    exit;
-});
+$app->get('/notes', NotesController::class . ':index');
 
-$app->get('/notes/add', function (Request $request, Response $response, $args) {
-    include  'pages/add.php';
-    exit;
-});
-$app->post('/notes/add', function (Request $request, Response $response, $args) {
-    include  'pages/add_post.php';
-    exit;
-});
+// $app->get('/notes/add', function (Request $request, Response $response, $args) {
+//     include  'pages/add.php';
+//     exit;
+// });
+// $app->post('/notes/add', function (Request $request, Response $response, $args) {
+//     include  'pages/add_post.php';
+//     exit;
+// });
 
-$app->get('/notes/{id}/edit', function (Request $request, Response $response, $args) {
-    $id = $args['id'] ?? null;
-    include  'pages/edit.php';
-    exit;
-});
+// $app->get('/notes/{id}/edit', function (Request $request, Response $response, $args) {
+//     $id = $args['id'] ?? null;
+//     include  'pages/edit.php';
+//     exit;
+// });
 
-$app->post('/notes/{id}/edit', function (Request $request, Response $response, $args) {
-    $id = $args['id'] ?? null;
-    include  'pages/edit_post.php';
-    exit;
-});
+// $app->post('/notes/{id}/edit', function (Request $request, Response $response, $args) {
+//     $id = $args['id'] ?? null;
+//     include  'pages/editpost.php';
+//     exit;
+// });
 
-$app->post('/notes/{id}/delete', function (Request $request, Response $response, $args) {
-    $id = $args['id'] ?? null;
-    include  'pages/delete.php';
-    exit;
-});
+// $app->post('/notes/{id}/delete', function (Request $request, Response $response, $args) {
+//     $id = $args['id'] ?? null;
+//     include  'pages/delete.php';
+//     exit;
+// });
