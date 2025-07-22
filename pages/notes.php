@@ -1,11 +1,11 @@
 <?php
 
-require '../smarty.php';
+require 'smarty.php';
 
 $notes = [];
 
-if (file_exists('../notes.json')) {
-    $notes = json_decode(file_get_contents('../notes.json'), true);
+if (file_exists('notes.json')) {
+    $notes = json_decode(file_get_contents('notes.json'), true);
 }
 
 $datas = [
@@ -23,7 +23,7 @@ $datas = [
 ];
 
 //include '../templates/notes.php';
-$smarty->assign('title','Notes');
+$smarty->assign('title', 'Notes');
 $smarty->assign('datas', $datas);
 $smarty->assign('notes', $notes);
 $smarty->display('pages/notes.tpl');
