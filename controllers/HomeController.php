@@ -18,6 +18,6 @@ class HomeController
         $smarty->assign('notes', $notes);
         $smarty->display('pages/dashboard.tpl');
 
-        return $response;
+        exit;
     }
 }

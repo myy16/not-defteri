@@ -181,7 +181,7 @@ class NotesController
 
         $smarty->display('pages/edit.tpl');
 
-        return $response;
+        exit;
     }
 
     // edit_post
