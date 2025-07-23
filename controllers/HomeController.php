@@ -10,11 +10,7 @@ class HomeController
 
         $page='pages/dashboard.tpl';
 
-        $notes = [];
-
-        if (file_exists('notes.json')) {
-            $notes = json_decode(file_get_contents('notes.json'), true);
-        }
+        $notes = getnotes();
 
         $smarty->assign('title', 'Dashboard');
         $smarty->assign('notes', $notes);

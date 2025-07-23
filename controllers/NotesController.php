@@ -10,14 +10,9 @@ class NotesController
     {
 
         global $smarty;
+        $notes = getnotes();
 
         $page = 'pages/notes.tpl';
-
-        $notes = [];
-
-        if (file_exists('notes.json')) {
-            $notes = json_decode(file_get_contents('notes.json'), true);
-        }
 
         $datas = [
             'title' => "Notes",
@@ -94,11 +89,7 @@ class NotesController
                 'date' => date("Y-m-d H:i:s"),
             ];
 
-            $notes = [];
-
-            if (file_exists('notes.json')) {
-                $notes = json_decode(file_get_contents('notes.json'), true) ?? [];
-            }
+            $notes = getnotes();
             $newid = array_key_last($notes) + 1;
 
 
@@ -132,11 +123,7 @@ class NotesController
         $jsonFile = 'notes.json';
         $showSuccessModal = false;
 
-        $notes = [];
-
-        if (file_exists($jsonFile)) {
-            $notes = json_decode(file_get_contents($jsonFile), true);
-        }
+        $notes = getnotes();
 
         $id = $args['id'] ?? null;
 
@@ -185,10 +172,7 @@ class NotesController
 
         $id = $args['id'] ?? null;
 
-        $notes = [];
-        if (file_exists($jsonFile)) {
-            $notes = json_decode(file_get_contents($jsonFile), true);
-        }
+        $notes = getnotes();
 
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
@@ -210,12 +194,8 @@ class NotesController
     // delere_post
     public function delete(Request $request, Response $response, $args)
     {
-        $notes = [];
-
-        if (file_exists('notes.json')) {
-            $notes = json_decode(file_get_contents('notes.json'), true);
-        }
-
+        $notes = getnotes();
+        
         $id = $args['id'] ?? null;
 
         if (isset($notes[$id])) {
