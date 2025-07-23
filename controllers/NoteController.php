@@ -9,7 +9,8 @@ class NotesController
     public function index(Request $request, Response $response)
     {
 
-        require "smarty.php";
+        global $smarty;
+        
         $notes = [];
 
         if (file_exists('notes.json')) {
@@ -43,7 +44,7 @@ class NotesController
 
     public function create(Request $request, Response $response)
     {
-        require 'smarty.php';
+        global $smarty;
 
         $jsonFile = 'notes.json';
         $showSuccessModal = false;
@@ -82,7 +83,7 @@ class NotesController
 
     public function store(Request $request, Response $response)
     {
-
+        global $smarty;
 
         $jsonFile = 'notes.json';
         $showSuccessModal = false;
@@ -130,7 +131,7 @@ class NotesController
     // edit
     public function edit(Request $request, Response $response, $args)
     {
-        require 'smarty.php';
+        global $smarty;
 
         $jsonFile = 'notes.json';
         $showSuccessModal = false;
