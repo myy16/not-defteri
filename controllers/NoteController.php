@@ -46,7 +46,6 @@ class NotesController
     {
         global $smarty;
 
-        $jsonFile = 'notes.json';
         $showSuccessModal = false;
 
         $datas = [
@@ -68,8 +67,6 @@ class NotesController
             ]
         ];
 
-        $form_id = 'add_form';
-
         $smarty->assign('title', 'Add Note');
         $smarty->assign('datas', $datas);
         $smarty->assign('showSuccessModal', $showSuccessModal);
@@ -83,10 +80,7 @@ class NotesController
 
     public function store(Request $request, Response $response)
     {
-        global $smarty;
-
         $jsonFile = 'notes.json';
-        $showSuccessModal = false;
 
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
@@ -122,8 +116,6 @@ class NotesController
             }
         }
 
-        $form_id = 'add_form';
-
         header('Location: /notes');
         exit;
     }
@@ -150,7 +142,6 @@ class NotesController
 
         $note = $notes[$id];
 
-        $title = "Edit Note";
 
         $datas = [
             'title' => "Edit Note",
