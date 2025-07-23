@@ -12,8 +12,8 @@
             class="btn btn-primary justify-content-center"
         >Notes</a>
 
-        <div class ="notes-container" style ="margin-top: 120px;">
-            <p>You have {count($notes)} notes</p>
+        <div class ="notes-container" style ="margin-top: 160px;">
+            <p style="font-size: 32px; color: #e75d00; font-weight: 600; text-align: center; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">You Have {count($notes)} Notes</p>
         </div>
 
     </div>

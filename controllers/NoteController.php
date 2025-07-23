@@ -180,6 +180,8 @@ class NotesController
         $smarty->assign('title', 'Edit Note');
 
         $smarty->display('pages/edit.tpl');
+
+        return $response;
     }
 
     // edit_post

@@ -17,5 +17,7 @@ class HomeController
         $smarty->assign('title', 'Dashboard');
         $smarty->assign('notes', $notes);
         $smarty->display('pages/dashboard.tpl');
+
+        return $response;
     }
 }
