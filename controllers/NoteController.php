@@ -10,7 +10,9 @@ class NotesController
     {
 
         global $smarty;
-        
+
+        $page = 'pages/notes.tpl';
+
         $notes = [];
 
         if (file_exists('notes.json')) {
@@ -35,9 +37,7 @@ class NotesController
         $smarty->assign('datas', $datas);
         $smarty->assign('notes', $notes);
 
-        $smarty->display('pages/notes.tpl');
-
-        exit;
+        showpage($page);
     }
 
     // add 
@@ -45,6 +45,8 @@ class NotesController
     public function create(Request $request, Response $response)
     {
         global $smarty;
+
+        $page = 'pages/add.tpl';
 
         $showSuccessModal = false;
 
@@ -73,7 +75,7 @@ class NotesController
         $smarty->assign('error', isset($error) ? $error : '');
         $smarty->assign('form_id', 'add_form');
 
-        $smarty->display('pages/add.tpl');
+        showpage($page);
     }
 
     // add_post
@@ -125,6 +127,8 @@ class NotesController
     {
         global $smarty;
 
+        $page = 'pages/edit.tpl';
+
         $jsonFile = 'notes.json';
         $showSuccessModal = false;
 
@@ -171,9 +175,7 @@ class NotesController
         $smarty->assign('error', isset($error) ? $error : '');
         $smarty->assign('title', 'Edit Note');
 
-        $smarty->display('pages/edit.tpl');
-
-        exit;
+        showpage($page);
     }
 
     // edit_post

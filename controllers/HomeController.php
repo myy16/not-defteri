@@ -8,6 +8,8 @@ class HomeController
     {
         global $smarty;
 
+        $page='pages/dashboard.tpl';
+
         $notes = [];
 
         if (file_exists('notes.json')) {
@@ -16,8 +18,8 @@ class HomeController
 
         $smarty->assign('title', 'Dashboard');
         $smarty->assign('notes', $notes);
-        $smarty->display('pages/dashboard.tpl');
 
-        exit;
+
+        showpage($page);
     }
 }
