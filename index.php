@@ -24,3 +24,14 @@ function showpage($page)
     $smarty->display($page);
     exit;
 }
+
+function getnotes()
+{
+    $notes = [];
+
+    if (file_exists('notes.json')) {
+        $notes = json_decode(file_get_contents('notes.json'), true);
+    }
+
+    return $notes;
+}
