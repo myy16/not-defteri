@@ -7,25 +7,21 @@ class NotesController
 {
     public function index(Request $request, Response $response)
     {
-        $notes = getnotes();
-        $page = 'pages/notes.tpl';
-        $datas = [
-            'title' => "Notes",
-            'buttons' => [
-                [
-                    'type' => 'add',
-                    'href' => '/notes/add',
-                    'class' => 'btn btn-primary fw-bold fs-3',
-                    'text' => '+',
-                    'title' => 'Add Note',
-                ]
-            ]
-        ];
-
-        showpage($page, [
+        showpage('pages/notes.tpl', [
             'title' => 'Notes',
-            'datas' => $datas,
-            'notes' => $notes,
+            'notes' => getnotes(),
+            'datas' =>  [
+                'title' => "Notes",
+                'buttons' => [
+                    [
+                        'type' => 'add',
+                        'href' => '/notes/add',
+                        'class' => 'btn btn-primary fw-bold fs-3',
+                        'text' => '+',
+                        'title' => 'Add Note',
+                    ]
+                ]
+            ],
         ]);
     }
 
@@ -90,7 +86,7 @@ class NotesController
         if (!isset($note)) {
             die("Note Not Found!");
         }
- 
+
         showpage('pages/edit.tpl', [
             'note' => $note,
             'form_id' => 'edit_form',
