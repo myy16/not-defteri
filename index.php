@@ -18,14 +18,15 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 include 'routes.php';
 $app->run();
 
-function showpage($page)
+function showpage($page, array $vars)
 {
     global $smarty;
 
+    $smarty->assign($vars);
     $smarty->display($page);
+
     exit;
 }
-
 function getnotes()
 {
     $notes = [];

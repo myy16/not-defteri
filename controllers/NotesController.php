@@ -7,8 +7,6 @@ class NotesController
 {
     public function index(Request $request, Response $response)
     {
-        global $smarty;
-
         $notes = getnotes();
         $page = 'pages/notes.tpl';
         $datas = [
@@ -24,48 +22,39 @@ class NotesController
             ]
         ];
 
-        $smarty->assign([
+        showpage($page, [
             'title' => 'Notes',
             'datas' => $datas,
             'notes' => $notes,
         ]);
-
-        showpage($page);
     }
 
     // add 
     public function create(Request $request, Response $response)
     {
-        global $smarty;
-
-        $page = 'pages/add.tpl';
-        $datas = [
-            'title' => "Add Note",
-            'buttons' => [
-                [
-                    'href' => '/notes',
-                    'class' => 'btn btn-primary fw-bold fs-4',
-                    'text' => 'Notes',
-                    'title' => 'Back to Notes'
-                ],
-                [
-                    'type' => 'submit',
-                    'form_id' => 'add_form',
-                    'class' => 'btn btn-danger fw-bold fs-4',
-                    'text' => 'Save',
-                    'title' => 'Save Note'
-                ]
-            ]
-        ];
-
-        $smarty->assign([
+        showpage('pages/add.tpl', [
             'title' => 'Add Note',
             'form_id' => 'add_form',
             'error' => isset($error) ? $error : '',
-            'datas' => $datas,
+            'datas' => [
+                'title' => "Add Note",
+                'buttons' => [
+                    [
+                        'href' => '/notes',
+                        'class' => 'btn btn-primary fw-bold fs-4',
+                        'text' => 'Notes',
+                        'title' => 'Back to Notes'
+                    ],
+                    [
+                        'type' => 'submit',
+                        'form_id' => 'add_form',
+                        'class' => 'btn btn-danger fw-bold fs-4',
+                        'text' => 'Save',
+                        'title' => 'Save Note'
+                    ]
+                ]
+            ],
         ]);
-
-        showpage($page);
     }
 
     // add_post
@@ -77,7 +66,7 @@ class NotesController
 
         if ($isdatavalid) {
             $newNote = [
-                'title'=> $title,
+                'title' => $title,
                 'content' => $content,
                 'date' => date("Y-m-d H:i:s"),
             ];
@@ -94,49 +83,38 @@ class NotesController
     // edit
     public function edit(Request $request, Response $response, $args)
     {
-        global $smarty;
-
-        $page = 'pages/edit.tpl';
         $notes = getnotes();
         $id = $args['id'] ?? null;
         $note = $notes[$id];
-        $datas = [
-            'title' => "Edit Note",
-            'buttons' => [
-                [
-                    'href' => '/notes',
-                    'class' => 'btn btn-primary fw-bold fs-4',
-                    'text' => 'Notes',
-                    'title' => 'Back to Notes'
-                ],
-                [
-                    'type' => 'submit',
-                    'form_id' => 'edit_form',
-                    'class' => 'btn btn-danger fw-bold fs-4',
-                    'text' => 'Save',
-                    'title' => 'Save Note'
-                ]
-            ]
-        ];
-        $form_id = 'edit_form';
 
-        if (!isset($notes[$id])) {
+        if (!isset($note)) {
             die("Note Not Found!");
         }
-
-        $smarty->assign('form_id', $form_id);
-        $smarty->assign('note', $note);
-        $smarty->assign('datas', $datas);
-        $smarty->assign('title', 'Edit Note');
-
-        $smarty->assign([
+ 
+        showpage('pages/edit.tpl', [
             'note' => $note,
-            'form_id' => $form_id,
-            'datas' => $datas,
+            'form_id' => 'edit_form',
             'title' => 'Edit Note',
-        ]);
+            'datas' => [
+                'title' => "Edit Note",
+                'buttons' => [
+                    [
+                        'href' => '/notes',
+                        'class' => 'btn btn-primary fw-bold fs-4',
+                        'text' => 'Notes',
+                        'title' => 'Back to Notes'
+                    ],
+                    [
+                        'type' => 'submit',
+                        'form_id' => 'edit_form',
+                        'class' => 'btn btn-danger fw-bold fs-4',
+                        'text' => 'Save',
+                        'title' => 'Save Note'
+                    ]
+                ]
+            ],
 
-        showpage($page);
+        ]);
     }
 
     // edit_post
