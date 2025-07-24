@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
 
-                            <h2>
+                            <h2 class="fs-6">
                                 {$note.title}
                                 ({$note.date})
                             </h2>
