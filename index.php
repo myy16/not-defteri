@@ -10,6 +10,7 @@ require "smarty.php";
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/controllers/NotesController.php';
 require __DIR__ . '/controllers/HomeController.php';
+require __DIR__ . '/helpers.php';
 
 $app = AppFactory::create();
 
@@ -17,23 +18,3 @@ $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 include 'routes.php';
 $app->run();
-
-function showpage($page, array $vars)
-{
-    global $smarty;
-
-    $smarty->assign($vars);
-    $smarty->display($page);
-
-    exit;
-}
-function getnotes()
-{
-    $notes = [];
-
-    if (file_exists('notes.json')) {
-        $notes = json_decode(file_get_contents('notes.json'), true);
-    }
-
-    return $notes;
-}
