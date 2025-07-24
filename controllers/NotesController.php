@@ -3,17 +3,14 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-
 class NotesController
 {
     public function index(Request $request, Response $response)
     {
-
         global $smarty;
+
         $notes = getnotes();
-
         $page = 'pages/notes.tpl';
-
         $datas = [
             'title' => "Notes",
             'buttons' => [
@@ -27,7 +24,6 @@ class NotesController
             ]
         ];
 
-        //include '../templates/notes.php';
         $smarty->assign('title', 'Notes');
         $smarty->assign('datas', $datas);
         $smarty->assign('notes', $notes);
@@ -36,15 +32,12 @@ class NotesController
     }
 
     // add 
-
     public function create(Request $request, Response $response)
     {
         global $smarty;
 
         $page = 'pages/add.tpl';
-
         $showSuccessModal = false;
-
         $datas = [
             'title' => "Add Note",
             'buttons' => [
@@ -74,11 +67,9 @@ class NotesController
     }
 
     // add_post
-
     public function store(Request $request, Response $response)
     {
         $jsonFile = 'notes.json';
-
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
 
@@ -88,27 +79,12 @@ class NotesController
                 'content' => htmlspecialchars($content),
                 'date' => date("Y-m-d H:i:s"),
             ];
-
             $notes = getnotes();
             $newid = array_key_last($notes) + 1;
-
-
             $notes[$newid] = $newNote;
             file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
         }
-        if ($title === '' || $content === '') {
-            $error = "Title and content cannot be empty!";
-        } else {
-
-            $notes[$newid] = $newNote;
-
-            if (file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE))) {
-                $showSuccessModal = true;
-            } else {
-                $error = "An error occurred while saving the note.";
-            }
-        }
-
+        
         header('Location: /notes');
         exit;
     }
@@ -119,21 +95,9 @@ class NotesController
         global $smarty;
 
         $page = 'pages/edit.tpl';
-
-        $jsonFile = 'notes.json';
-        $showSuccessModal = false;
-
         $notes = getnotes();
-
         $id = $args['id'] ?? null;
-
-        if (!isset($notes[$id])) {
-            die("Note Not Found!");
-        }
-
         $note = $notes[$id];
-
-
         $datas = [
             'title' => "Edit Note",
             'buttons' => [
@@ -152,13 +116,15 @@ class NotesController
                 ]
             ]
         ];
-
         $form_id = 'edit_form';
+
+        if (!isset($notes[$id])) {
+            die("Note Not Found!");
+        }
 
         $smarty->assign('form_id', $form_id);
         $smarty->assign('note', $note);
         $smarty->assign('datas', $datas);
-        $smarty->assign('showSuccessModal', $showSuccessModal);
         $smarty->assign('error', isset($error) ? $error : '');
         $smarty->assign('title', 'Edit Note');
 
@@ -169,20 +135,15 @@ class NotesController
     public function update(Request $request, Response $response, $args)
     {
         $jsonFile = 'notes.json';
-
         $id = $args['id'] ?? null;
-
         $notes = getnotes();
-
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
-
         $note = [
             'title' => $title,
             'content' => $content,
             'date' => date('Y-m-d H:i:s'),
         ];
-
         $notes[$id] = $note;
 
         file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
@@ -191,11 +152,10 @@ class NotesController
         exit;
     }
 
-    // delere_post
+    // delete_post
     public function delete(Request $request, Response $response, $args)
     {
         $notes = getnotes();
-        
         $id = $args['id'] ?? null;
 
         if (isset($notes[$id])) {

@@ -9,12 +9,10 @@ class HomeController
         global $smarty;
 
         $page='pages/dashboard.tpl';
-
         $notes = getnotes();
 
         $smarty->assign('title', 'Dashboard');
         $smarty->assign('notes', $notes);
-
 
         showpage($page);
     }
