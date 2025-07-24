@@ -73,7 +73,7 @@ class NotesController
 
         if ($isdatavalid) {
             $newNote = [
-                'title' => $title,
+                'title'=> $title,
                 'content' => $content,
                 'date' => date("Y-m-d H:i:s"),
             ];
@@ -158,7 +158,7 @@ class NotesController
             unset($notes[$id]);
             file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
         }
-        
+
         header("Location: /notes");
         exit;
     }
