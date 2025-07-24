@@ -11,8 +11,10 @@ class HomeController
         $page='pages/dashboard.tpl';
         $notes = getnotes();
 
-        $smarty->assign('title', 'Dashboard');
-        $smarty->assign('notes', $notes);
+        $smarty->assign([
+            'title' => 'Dashboard',
+            'notes' => $notes,
+        ]);
 
         showpage($page);
     }

@@ -24,9 +24,11 @@ class NotesController
             ]
         ];
 
-        $smarty->assign('title', 'Notes');
-        $smarty->assign('datas', $datas);
-        $smarty->assign('notes', $notes);
+        $smarty->assign([
+            'title' => 'Notes',
+            'datas' => $datas,
+            'notes' => $notes,
+        ]);
 
         showpage($page);
     }
@@ -56,10 +58,12 @@ class NotesController
             ]
         ];
 
-        $smarty->assign('title', 'Add Note');
-        $smarty->assign('datas', $datas);
-        $smarty->assign('error', isset($error) ? $error : '');
-        $smarty->assign('form_id', 'add_form');
+        $smarty->assign([
+            'title' => 'Add Note',
+            'form_id' => 'add_form',
+            'error' => isset($error) ? $error : '',
+            'datas' => $datas,
+        ]);
 
         showpage($page);
     }
@@ -124,6 +128,13 @@ class NotesController
         $smarty->assign('note', $note);
         $smarty->assign('datas', $datas);
         $smarty->assign('title', 'Edit Note');
+
+        $smarty->assign([
+            'note' => $note,
+            'form_id' => $form_id,
+            'datas' => $datas,
+            'title' => 'Edit Note',
+        ]);
 
         showpage($page);
     }
