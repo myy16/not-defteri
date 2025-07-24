@@ -37,7 +37,6 @@ class NotesController
         global $smarty;
 
         $page = 'pages/add.tpl';
-        $showSuccessModal = false;
         $datas = [
             'title' => "Add Note",
             'buttons' => [
@@ -59,7 +58,6 @@ class NotesController
 
         $smarty->assign('title', 'Add Note');
         $smarty->assign('datas', $datas);
-        $smarty->assign('showSuccessModal', $showSuccessModal);
         $smarty->assign('error', isset($error) ? $error : '');
         $smarty->assign('form_id', 'add_form');
 
@@ -69,14 +67,14 @@ class NotesController
     // add_post
     public function store(Request $request, Response $response)
     {
-        $jsonFile = 'notes.json';
         $title = trim($_POST['title']);
         $content = trim($_POST['content']);
+        $isdatavalid = !empty($title) && !empty($content);
 
-        if ($title !== '' && $content !== '') {
+        if ($isdatavalid) {
             $newNote = [
-                'title' => htmlspecialchars($title),
-                'content' => htmlspecialchars($content),
+                'title' => $title,
+                'content' => $content,
                 'date' => date("Y-m-d H:i:s"),
             ];
             $notes = getnotes();
@@ -84,7 +82,7 @@ class NotesController
             $notes[$newid] = $newNote;
             file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
         }
-        
+
         header('Location: /notes');
         exit;
     }
@@ -125,7 +123,6 @@ class NotesController
         $smarty->assign('form_id', $form_id);
         $smarty->assign('note', $note);
         $smarty->assign('datas', $datas);
-        $smarty->assign('error', isset($error) ? $error : '');
         $smarty->assign('title', 'Edit Note');
 
         showpage($page);
@@ -134,7 +131,6 @@ class NotesController
     // edit_post
     public function update(Request $request, Response $response, $args)
     {
-        $jsonFile = 'notes.json';
         $id = $args['id'] ?? null;
         $notes = getnotes();
         $title = trim($_POST['title']);
@@ -146,7 +142,7 @@ class NotesController
         ];
         $notes[$id] = $note;
 
-        file_put_contents($jsonFile, json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
         header('Location: /notes');
         exit;
@@ -162,6 +158,7 @@ class NotesController
             unset($notes[$id]);
             file_put_contents('notes.json', json_encode($notes, JSON_PRETTY_PRINT));
         }
+        
         header("Location: /notes");
         exit;
     }

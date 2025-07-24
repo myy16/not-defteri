@@ -21,7 +21,7 @@ $app->run();
 function showpage($page)
 {
     global $smarty;
-    
+
     $smarty->display($page);
     exit;
 }
