@@ -14,7 +14,10 @@ require __DIR__ . '/controllers/NotesController.php';
 
 $app = AppFactory::create();
 
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
+$app->addErrorMiddleware(true, true, true);
+
+$app->addBodyParsingMiddleware();
+$app->add(new \Slim\Middleware\MethodOverrideMiddleware());
 
 include 'routes.php';
 
