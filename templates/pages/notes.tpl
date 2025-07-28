@@ -43,6 +43,20 @@
                     </div>
                 {/foreach}
             </div>
+            <form
+                action="/notes"
+                method="POST"
+            >
+                <input
+                    type="hidden"
+                    name="_METHOD"
+                    value="DELETE"
+                >
+                <button
+                    type="submit"
+                    class="btn btn-danger fixed m-5"
+                >Delete All Notes</button>
+            </form>
         </div>
 
     {else}

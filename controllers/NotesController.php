@@ -147,4 +147,18 @@ class NotesController
         header("Location: /notes");
         exit;
     }
+
+    // delete_all
+
+    public function deleteAll(Request $request, Response $response)
+    {
+        $jsonFilePath = 'notes.json';
+
+        if (file_exists($jsonFilePath)) {
+            file_put_contents($jsonFilePath, json_encode([]));
+        }
+
+        header("Location: /notes");
+        exit;
+    }
 }
