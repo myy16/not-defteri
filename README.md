@@ -222,15 +222,15 @@ ls -la templates_c/
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page]()
-
-### Adding Note
-![Add Note]()
-
-### Editting Note
-![Home Page]()
+![Home Page](demo/home.png)
 
 ### All Notes
-![Add Note]()
+![Add Note](demo/notes.png)
+
+### Adding Note
+![Add Note](demo/add.png)
+
+### Editting Note
+![Home Page](demo/edit.png)
 
 ---
